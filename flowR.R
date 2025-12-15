@@ -29,10 +29,11 @@ for (i in seq_along(args)) {
     } else if (args[i] == "--gene" || args[i] == "-g") {
         gene_query <- args[i + 1]
     } else if (args[i] == "--window" || args[i] == "-w") {
-    window <- as.integer(args[i + 1])
+        window <- as.integer(args[i + 1])
     } else if (args[i] == "--top" || args[i] == "-t") {
-    top_n <- as.integer(args[i + 1])
+        top_n <- as.integer(args[i + 1])
     } else if (args[i] == "--plot" || args[i] == "-p") {
-    plot_file <- args[i + 1]
+        plot_file <- args[i + 1]
     }
 }
+
