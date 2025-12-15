@@ -30,5 +30,7 @@ for (i in seq_along(args)) {
         gene_query <- args[i + 1]
     } else if (args[i] == "--window" || args[i] == "-w") {
     window <- as.integer(args[i + 1])
+    } else if (args[i] == "--top" || args[i] == "-t") {
+    top_n <- as.integer(args[i + 1])
     }
 }
