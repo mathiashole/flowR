@@ -32,5 +32,7 @@ for (i in seq_along(args)) {
     window <- as.integer(args[i + 1])
     } else if (args[i] == "--top" || args[i] == "-t") {
     top_n <- as.integer(args[i + 1])
+    } else if (args[i] == "--plot" || args[i] == "-p") {
+    plot_file <- args[i + 1]
     }
 }
