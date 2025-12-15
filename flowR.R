@@ -19,6 +19,8 @@ window     <- 3
 top_n      <- 8
 plot_file  <- NULL
 
+# -----------------------------------------------------------
+# Parse command line arguments
 for (i in seq_along(args)) {
     if (args[i] == "--gff") {
         gff_files <- c(gff_files, args[i + 1])
