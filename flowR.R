@@ -37,3 +37,8 @@ for (i in seq_along(args)) {
     }
 }
 
+# -----------------------------------------------------------
+# Validate required arguments
+if (length(gff_files) == 0 || length(yaml_files) == 0 || is.null(gene_query)) {
+    stop("Usage: Rscript flowR.R --gff genome.gff --yaml genome.yaml --gene DGF-1 [--window 3] [--top 8] [--plot out.png]") # Check for required arguments
+}
