@@ -24,5 +24,7 @@ plot_file  <- NULL
 for (i in seq_along(args)) {
     if (args[i] == "--gff"  || args[i] == "-g") {
         gff_files <- c(gff_files, args[i + 1])
+    } else if (args[i] == "--yaml" || args[i] == "-y") {
+    yaml_files <- c(yaml_files, args[i + 1])
     }
 }
