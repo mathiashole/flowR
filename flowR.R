@@ -22,7 +22,7 @@ plot_file  <- NULL
 # -----------------------------------------------------------
 # Parse command line arguments
 for (i in seq_along(args)) {
-    if (args[i] == "--gff") {
+    if (args[i] == "--gff"  || args[i] == "-g") {
         gff_files <- c(gff_files, args[i + 1])
     }
 }
