@@ -28,5 +28,7 @@ for (i in seq_along(args)) {
         yaml_files <- c(yaml_files, args[i + 1])
     } else if (args[i] == "--gene" || args[i] == "-g") {
         gene_query <- args[i + 1]
+    } else if (args[i] == "--window" || args[i] == "-w") {
+    window <- as.integer(args[i + 1])
     }
 }
