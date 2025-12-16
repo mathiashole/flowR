@@ -46,3 +46,14 @@ if (length(gff_files) == 0 || length(yaml_files) == 0 || is.null(gene_query)) {
 if (length(gff_files) != length(yaml_files)) {
     stop("Number of GFF files must match number of YAML files") # Ensure matching number of files
 }
+
+# -----------------------------------------------------------
+# auxiliary functions
+
+extract_description <- function(attr, keys) {
+    for (k in keys) {
+        m <- sub(paste0(".*", k, "=([^;]*).*"), "\\1", attr)
+        if (m != attr) return(m)
+    }
+    NA
+}
