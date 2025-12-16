@@ -74,5 +74,8 @@ normalize_description <- function(desc, norm) {
     if (isTRUE(norm$collapse_spaces)) {
         desc <- gsub("\\s+", " ", desc)
     }
+    if (isTRUE(norm$to_lower)) {
+        desc <- tolower(desc)
+    }
 
 }
