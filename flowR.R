@@ -123,11 +123,11 @@ all_contexts <- list()
 
 for (i in seq_along(gff_files)) {
     message("Processing: ", gff_files[g])
-    gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE) # Load GFF file
+    gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE)
     cfg <- read_yaml(yaml_files[g])
 
     genes <- gff %>%
-        filter(V3 == cfg$features$gene_type) %>%
+        filter(V3 == cfg$features$gene_type) %>% # Filter for gene features
         transmute(
         chr    = V1,
         start  = as.numeric(V4),
@@ -136,4 +136,19 @@ for (i in seq_along(gff_files)) {
         attr   = V9
         ) %>% # Extract relevant columns
         arrange(chr, start) # Arrange by chromosome and start position
+# Extract protein descriptions
+    genes$protein <- vapply(
+        genes$attr,
+        extract_description,
+        character(1),
+        keys = cfg$features$attribute_keys
+    )
+# Normalize protein descriptions
+    genes$protein <- vapply(
+        genes$protein,
+        normalize_description,
+        character(1),
+        norm = cfg$normalization
+    )
+
 }
