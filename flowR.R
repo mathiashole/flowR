@@ -92,4 +92,7 @@ same_chr <- genes %>% # Select genes on the same chromosome as the anchor gene
     filter(chr == anchor_row$chr) %>%
     arrange(start) # Arrange by start position
 
+before <- same_chr %>% filter(end < anchor_row$start) # Genes before the anchor gene
+after  <- same_chr %>% filter(start > anchor_row$end) # Genes after the anchor gene
+
 }
