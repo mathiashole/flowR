@@ -95,4 +95,12 @@ same_chr <- genes %>% # Select genes on the same chromosome as the anchor gene
 before <- same_chr %>% filter(end < anchor_row$start) # Genes before the anchor gene
 after  <- same_chr %>% filter(start > anchor_row$end) # Genes after the anchor gene
 
+if (anchor_row$strand == "+") {
+    upstream   <- tail(before, n) # Upstream genes (5' direction)
+    downstream <- head(after, n) # Downstream genes (3' direction)
+} else {
+    upstream   <- head(after, n) # Upstream genes (5' direction)
+    downstream <- tail(before, n) # Downstream genes (3' direction)
+}
+
 }
