@@ -88,4 +88,8 @@ normalize_description <- function(desc, norm) {
 
 get_oriented_context <- function(anchor_row, genes, n = 3) {
 
+same_chr <- genes %>% # Select genes on the same chromosome as the anchor gene
+    filter(chr == anchor_row$chr) %>%
+    arrange(start) # Arrange by start position
+
 }
