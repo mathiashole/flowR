@@ -124,4 +124,16 @@ all_contexts <- list()
 for (i in seq_along(gff_files)) {
     message("Processing: ", gff_files[g])
     gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE) # Load GFF file
+    cfg <- read_yaml(yaml_files[g])
+
+    genes <- gff %>%
+        filter(V3 == cfg$features$gene_type) %>%
+        transmute(
+        chr    = V1,
+        start  = as.numeric(V4),
+        end    = as.numeric(V5),
+        strand = V7,
+        attr   = V9
+        ) %>% # Extract relevant columns
+        arrange(chr, start) # Arrange by chromosome and start position
 }
