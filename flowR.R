@@ -57,3 +57,8 @@ extract_description <- function(attr, keys) { # Extract description from GFF att
     }
     NA # return NA if no match found
 }
+
+normalize_description <- function(desc, norm) {
+    if (is.na(desc)) return(NA)
+
+}
