@@ -218,4 +218,6 @@ n_anchors <- nrow(anchors) # Number of anchor genes found
     theme_classic() +
     theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10))
 
+ggsave(plot_file, gg, width = 12, height = 8, dpi = 800)
+
 }
