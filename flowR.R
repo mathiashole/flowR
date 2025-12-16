@@ -211,9 +211,9 @@ n_anchors <- nrow(anchors) # Number of anchor genes found
     annotate("text", x = Inf, y = Inf, label = paste0("n = ", n_anchors), hjust = 1.1, vjust = 1.5, size = 4) +
     scale_x_continuous(breaks = -window:window, labels = c(paste0("5′ -", window:1), gene_query, paste0("3′ +", 1:window))) +
     labs(
-        x = paste0("5′ ← ", gene_query, " → 3′"),
-        y = "Número de genes",
-        color = "Proteína"
+        x = paste0("5′ <- ", gene_query, " -> 3′"),
+        y = "Number of genes",
+        color = "Protein",
     ) +
     theme_classic() +
     theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10))
