@@ -82,3 +82,10 @@ normalize_description <- function(desc, norm) {
     }
     desc # return normalized description
 }
+
+# -----------------------------------------------------------
+# Biological function: contextual 5' and 3' gene orientation
+
+get_oriented_context <- function(anchor_row, genes, n = 3) {
+
+}
