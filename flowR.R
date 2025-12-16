@@ -205,4 +205,7 @@ if (!is.null(plot_file)) {
 
 n_anchors <- nrow(anchors) # Number of anchor genes found
 
+    gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) +
+        geom_line(linewidth = 1) +
+        geom_point(size = 3, alpha = 0.8)
 }
