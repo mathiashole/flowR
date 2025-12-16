@@ -161,3 +161,14 @@ for (i in seq_along(gff_files)) {
 
     all_contexts[[g]] <- ctx
 }
+
+context_data <- bind_rows(all_contexts) # Combine all contexts into a single data frame
+
+stopifnot("relative_position" %in% colnames(context_data)) # Ensure relative_position column exists
+
+# -----------------------------------------------------------
+# Fisher's Exact Test for enrichment analysis
+
+# -----------------------------------------------------------
+# Select top N frequencies proteins
+
