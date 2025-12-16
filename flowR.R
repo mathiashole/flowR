@@ -180,3 +180,20 @@ top_proteins <- context_data %>% # Identify top N most frequent proteins
 plot_data <- context_data %>% # prepare data for plotting
     filter(protein %in% top_proteins) %>%
     count(protein, relative_position)
+# continue visualization even if some positions have zero counts
+plot_data <- bind_rows(
+    plot_data,
+    expand.grid(
+        protein = top_proteins,
+        relative_position = 0,
+        n = 0
+    )
+)
+# save data
+write.table(
+    plot_data,
+    file = sub("\\.png$", "_context_counts.tsv", plot_file), # Output file name
+    sep = "\t",
+    quote = FALSE,
+    row.names = FALSE
+)
