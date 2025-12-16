@@ -172,3 +172,12 @@ stopifnot("relative_position" %in% colnames(context_data)) # Ensure relative_pos
 # -----------------------------------------------------------
 # Select top N frequencies proteins
 
+# Identify top N most frequent proteins
+top_proteins <- context_data %>%
+    count(protein, sort = TRUE) %>%
+    slice_head(n = top_n) %>%
+    pull(protein)
+# prepare data for plotting
+plot_data <- context_data %>%
+    filter(protein %in% top_proteins) %>%
+    count(protein, relative_position)
