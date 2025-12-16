@@ -65,5 +65,8 @@ normalize_description <- function(desc, norm) {
         desc <- gsub("%2C", ",", desc)
         desc <- gsub("%20", " ", desc)
     }
+    if (isTRUE(norm$remove_parentheses)) {
+        desc <- gsub("\\(.*?\\)", "", desc)
+    }
 
 }
