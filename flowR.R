@@ -150,5 +150,10 @@ for (i in seq_along(gff_files)) {
         character(1),
         norm = cfg$normalization
     )
+# Find anchor gene
+    anchors <- genes %>%
+    filter(grepl(gene_query, attr, ignore.case = TRUE)) # Filter for anchor gene
+
+    if (nrow(anchors) == 0) next # Skip if no anchor gene found
 
 }
