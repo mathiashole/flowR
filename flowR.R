@@ -205,9 +205,9 @@ if (!is.null(plot_file)) {
 
 n_anchors <- nrow(anchors) # Number of anchor genes found
 
-    gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) +
-        geom_line(linewidth = 1) +
-        geom_point(size = 3, alpha = 0.8) +
+gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) +
+    geom_line(linewidth = 1) +
+    geom_point(size = 3, alpha = 0.8) +
     annotate("text", x = Inf, y = Inf, label = paste0("n = ", n_anchors), hjust = 1.1, vjust = 1.5, size = 4) +
     scale_x_continuous(breaks = -window:window, labels = c(paste0("5′ -", window:1), gene_query, paste0("3′ +", 1:window))) +
     labs(
