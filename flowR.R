@@ -155,5 +155,9 @@ for (i in seq_along(gff_files)) {
     filter(grepl(gene_query, attr, ignore.case = TRUE)) # Filter for anchor gene
 
     if (nrow(anchors) == 0) next # Skip if no anchor gene found
+# Get contexts for each anchor gene
+    ctx$genome <- cfg$genome
+    ctx <- ctx %>% filter(relative_position != 0) # Remove anchor gene
 
+    all_contexts[[g]] <- ctx
 }
