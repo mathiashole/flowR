@@ -68,5 +68,11 @@ normalize_description <- function(desc, norm) {
     if (isTRUE(norm$remove_parentheses)) {
         desc <- gsub("\\(.*?\\)", "", desc)
     }
+    if (isTRUE(norm$trim)) {
+        desc <- trimws(desc)
+    }
+    if (isTRUE(norm$collapse_spaces)) {
+        desc <- gsub("\\s+", " ", desc)
+    }
 
 }
