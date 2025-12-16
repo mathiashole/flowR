@@ -103,4 +103,16 @@ if (anchor_row$strand == "+") {
     downstream <- tail(before, n) # Downstream genes (3' direction)
 }
 
+upstream <- upstream %>% # Assign relative positions to upstream genes
+    arrange(start) %>% # Arrange by start position
+    mutate(relative_position = -rev(seq_len(nrow(.)))) # Negative positions for upstream
+
+downstream <- downstream %>% # Assign relative positions to downstream genes
+    arrange(start) %>% # Arrange by start position
+    mutate(relative_position = seq_len(nrow(.))) # Positive positions for downstream
+
+center <- anchor_row %>%
+    mutate(relative_position = 0) # Center gene with position 0
+
+bind_rows(upstream, center, downstream) # Combine upstream, center, and downstream genes
 }
