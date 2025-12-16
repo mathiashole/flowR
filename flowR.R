@@ -50,10 +50,10 @@ if (length(gff_files) != length(yaml_files)) {
 # -----------------------------------------------------------
 # auxiliary functions
 
-extract_description <- function(attr, keys) {
+extract_description <- function(attr, keys) { # Extract description from GFF attributes
     for (k in keys) {
-        m <- sub(paste0(".*", k, "=([^;]*).*"), "\\1", attr)
-        if (m != attr) return(m)
+        m <- sub(paste0(".*", k, "=([^;]*).*"), "\\1", attr) # Try to match each key
+        if (m != attr) return(m) # Return the matched description
     }
-    NA
+    NA # return NA if no match found
 }
