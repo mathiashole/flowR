@@ -61,4 +61,9 @@ extract_description <- function(attr, keys) { # Extract description from GFF att
 normalize_description <- function(desc, norm) {
     if (is.na(desc)) return(NA)
 
+    if (isTRUE(norm$decode_url)) {
+        desc <- gsub("%2C", ",", desc)
+        desc <- gsub("%20", " ", desc)
+    }
+
 }
