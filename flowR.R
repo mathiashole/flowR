@@ -62,20 +62,23 @@ normalize_description <- function(desc, norm) {
     if (is.na(desc)) return(NA)
 
     if (isTRUE(norm$decode_url)) {
-        desc <- gsub("%2C", ",", desc)
-        desc <- gsub("%20", " ", desc)
+        desc <- gsub("%2C", ",", desc) # Decode URL-encoded characters
+        desc <- gsub("%20", " ", desc) # Decode URL-encoded characters
     }
     if (isTRUE(norm$remove_parentheses)) {
-        desc <- gsub("\\(.*?\\)", "", desc)
+        desc <- gsub("\\(.*?\\)", "", desc) # Remove text within parentheses
     }
     if (isTRUE(norm$trim)) {
-        desc <- trimws(desc)
+        desc <- trimws(desc) # Trim leading and trailing whitespace
     }
     if (isTRUE(norm$collapse_spaces)) {
-        desc <- gsub("\\s+", " ", desc)
+        desc <- gsub("\\s+", " ", desc) # Collapse multiple spaces
     }
     if (isTRUE(norm$to_lower)) {
-        desc <- tolower(desc)
+        desc <- tolower(desc) # Convert to lowercase
     }
-
+    if (isTRUE(norm$capitalize) && nchar(desc) > 0) {
+        desc <- paste0(toupper(substr(desc, 1, 1)), substr(desc, 2, nchar(desc))) # Capitalize first letter
+    }
+    desc # return normalized description
 }
