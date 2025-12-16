@@ -116,3 +116,12 @@ center <- anchor_row %>%
 
 bind_rows(upstream, center, downstream) # Combine upstream, center, and downstream genes
 }
+
+# -----------------------------------------------------------
+# Main processing genomes
+all_contexts <- list()
+
+for (i in seq_along(gff_files)) {
+    message("Processing: ", gff_files[g])
+    gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE) # Load GFF file
+}
