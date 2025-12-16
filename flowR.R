@@ -197,3 +197,12 @@ write.table(
     quote = FALSE,
     row.names = FALSE
 )
+
+# -----------------------------------------------------------
+# Visualization
+# draw plot only if plot_file is provided
+if (!is.null(plot_file)) {
+
+n_anchors <- nrow(anchors) # Number of anchor genes found
+
+}
