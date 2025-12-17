@@ -11,7 +11,7 @@ Rscript flowR.R --gff_file data.gff --yaml config.yaml --gene gene_name --plot o
 ```
 
 ```{bash, eval = FALSE}
-Rscript flowR.R -g </path/of/file.gff> -y <config.yaml> -g <gene_name> -p <output_plot.png>
+Rscript flowR.R -g </path/of/file.gff> -y </path/of/config.yaml> -g <gene_name> -p <output_plot.png>
 ```
 
 <!-- If you have any genome data, put this data in TSV or CSV format and use GFF to map the chromosome.
