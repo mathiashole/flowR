@@ -7,7 +7,7 @@ Example 1: Basic Plot
 Basic plot using GFF file and YAML configuration and specifying name of gene.
 
 ```{bash, eval = FALSE}
-Rscript flowR.R --gff_file data.gff --yaml config.yaml --gene gene_name --plot output_plot.png
+Rscript flowR.R --gff data.gff --yaml config.yaml --gene gene_name --plot output_plot.png
 ```
 
 ```{bash, eval = FALSE}
