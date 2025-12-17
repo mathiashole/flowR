@@ -219,5 +219,4 @@ gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group
     theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10)) # Customize theme
 
 ggsave(plot_file, gg, width = 12, height = 8, dpi = 800) # Save plot to file
-
 }
