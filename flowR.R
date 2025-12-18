@@ -126,6 +126,8 @@ if (!is.null(fill_file)) {
     override_raw <- read.delim(fill_file, header = FALSE, stringsAsFactors = FALSE)
     colnames(override_raw)[1:3] <- c("chr", "v_tmp1", "v_tmp2")
 
+    override <- override_raw %>%
+        mutate
 }
 
 # -----------------------------------------------------------
