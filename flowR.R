@@ -18,6 +18,7 @@ gene_query <- NULL
 window     <- 3
 top_n      <- 8
 plot_file  <- NULL
+fill_file <- NULL
 
 # -----------------------------------------------------------
 # Parse command line arguments
@@ -34,6 +35,8 @@ for (i in seq_along(args)) {
         top_n <- as.integer(args[i + 1])
     } else if (args[i] == "--plot" || args[i] == "-p") {
         plot_file <- args[i + 1]
+    } else if (args[i] == "--fill_file" || args[i] == "-f") {
+        fill_file <- args[i + 1]
     }
 }
 
