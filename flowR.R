@@ -182,6 +182,10 @@ for (i in seq_along(gff_files)) {
         !!!cfg$replacements # Unquote-splice the replacements list
         )
     }
+# Get contexts around anchor genes
+    if (!is.null(override_file)) { # Use override file if provided
+        anchors <- override # Filter for anchor gene from override file
+    }
 
 # Find anchor gene
     anchors <- genes %>%
