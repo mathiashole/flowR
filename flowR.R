@@ -141,6 +141,7 @@ if (!is.null(fill_file)) {
 # -----------------------------------------------------------
 # Main processing genomes
 all_contexts <- list()
+all_genes    <- list()
 
 for (i in seq_along(gff_files)) {
     message("Processing: ", gff_files[g])
