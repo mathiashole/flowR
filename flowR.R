@@ -135,7 +135,7 @@ if (!is.null(fill_file)) {
     ) %>%
     select(chr, start, end, strand, protein) # Select relevant columns
     
-    message("-> fill file normalized: ", nrow(override), " gene charged.")
+    message("-> Normalized fill file: ", nrow(override), " gene charged.")
 }
 
 # -----------------------------------------------------------
