@@ -144,7 +144,7 @@ all_contexts <- list()
 all_genes    <- list()
 
 for (i in seq_along(gff_files)) {
-    message("Processing: ", gff_files[g])
+    message("-> Processing: ", gff_files[g])
     gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE)
     cfg <- read_yaml(yaml_files[g])
 
@@ -158,6 +158,9 @@ for (i in seq_along(gff_files)) {
         attr   = V9
         ) %>% # Extract relevant columns
         arrange(chr, start) # Arrange by chromosome and start position
+        
+    all_genes[[g]] <- genes # Store all genes for potential further analysis
+    
 # Extract protein descriptions
     genes$protein <- vapply(
         genes$attr,
