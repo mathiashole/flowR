@@ -249,7 +249,8 @@ write.table(
 # draw plot only if plot_file is provided
 if (!is.null(plot_file)) {
 
-n_anchors <- nrow(anchors) # Number of anchor genes found
+# n_anchors <- nrow(anchors) # Number of anchor genes found
+n_anchors <- sum(unique(context_data$n_anchors)) # Total number of anchor genes across genomes
 
 gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) + # Create ggplot object
     geom_line(linewidth = 1) + # Add lines for each protein
