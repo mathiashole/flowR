@@ -160,7 +160,7 @@ for (i in seq_along(gff_files)) {
         arrange(chr, start) # Arrange by chromosome and start position
         
     all_genes[[g]] <- genes # Store all genes for potential further analysis
-    
+
 # Extract protein descriptions
     genes$protein <- vapply(
         genes$attr,
@@ -175,6 +175,14 @@ for (i in seq_along(gff_files)) {
         character(1),
         norm = cfg$normalization
     )
+# Apply replacements if specified
+    if (!is.null(cfg$replacements)) { # if replacements are defined in the config
+        genes$protein <- dplyr::recode(
+        genes$protein,
+        !!!cfg$replacements # Unquote-splice the replacements list
+        )
+    }
+
 # Find anchor gene
     anchors <- genes %>%
     filter(grepl(gene_query, attr, ignore.case = TRUE)) # Filter for anchor gene
