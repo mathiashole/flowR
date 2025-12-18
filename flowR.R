@@ -192,7 +192,6 @@ for (i in seq_along(gff_files)) {
 
     if (nrow(anchors) == 0) next # Skip if no anchor gene found
 
-    if (nrow(anchors) == 0) next # Skip if no anchor gene found
 # Get contexts for each anchor gene
     ctx$genome <- cfg$genome
     ctx <- ctx %>% filter(relative_position != 0) # Remove anchor gene
