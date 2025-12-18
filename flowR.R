@@ -191,6 +191,11 @@ for (i in seq_along(gff_files)) {
     }
 
     if (nrow(anchors) == 0) next # Skip if no anchor gene found
+# Get contexts for each anchor gene
+    ctx <- map_dfr(
+        split(anchors, seq_len(nrow(anchors))),
+        ~ get_oriented_context(.x, genes, n = window)
+    ) # Combine contexts into a single data frame
 
 # Get contexts for each anchor gene
     ctx$n_anchors <- nrow(anchors)
