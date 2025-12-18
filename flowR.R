@@ -185,6 +185,9 @@ for (i in seq_along(gff_files)) {
 # Get contexts around anchor genes
     if (!is.null(fill_file)) { # Use fill file if provided
         anchors <- override # Filter for anchor gene from fill file
+    } else {
+    anchors <- genes %>%
+        filter(grepl(gene_query, attr, ignore.case = TRUE)) # Filter for anchor gene
     }
 
 # Find anchor gene
