@@ -127,7 +127,14 @@ if (!is.null(fill_file)) {
     colnames(override_raw)[1:3] <- c("chr", "v_tmp1", "v_tmp2")
 
     override <- override_raw %>%
-        mutate
+        mutate(
+        strand = ifelse(v_tmp1 <= v_tmp2, "+", "-"), # Detecte strand based on coordinates before normalization
+        start = pmin(as.numeric(v_tmp1), as.numeric(v_tmp2)), # force start to be the smaller value is important for filtering
+        end   = pmax(as.numeric(v_tmp1), as.numeric(v_tmp2)), # force end to be the larger value is important for filtering
+        protein = if(ncol(override_raw) >= 4) as.character(override_raw[[4]]) else gene_query # unique protein name if not provided
+    ) %>%
+    select(chr, start, end, strand, protein) # Select relevant columns
+
 }
 
 # -----------------------------------------------------------
