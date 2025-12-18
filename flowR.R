@@ -206,8 +206,9 @@ for (i in seq_along(gff_files)) {
 }
 
 context_data <- bind_rows(all_contexts) # Combine all contexts into a single data frame
-
 stopifnot("relative_position" %in% colnames(context_data)) # Ensure relative_position column exists
+
+all_genes_df <- bind_rows(all_genes) # Combine all genes into a single data frame
 
 # -----------------------------------------------------------
 # Fisher's Exact Test for enrichment analysis
