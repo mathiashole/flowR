@@ -122,7 +122,9 @@ bind_rows(upstream, center, downstream) # Combine upstream, center, and downstre
 
 # -----------------------------------------------------------
 # Process re-annotated genes
+if (!is.null(fill_file)) {
 
+}
 
 # -----------------------------------------------------------
 # Main processing genomes
