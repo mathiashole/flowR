@@ -210,6 +210,7 @@ stopifnot("relative_position" %in% colnames(context_data)) # Ensure relative_pos
 
 all_genes_df <- bind_rows(all_genes) # Combine all genes into a single data frame
 universe <- all_genes_df$protein # Define universe of proteins
+universe <- universe[!is.na(universe)] # Remove NA values
 
 # -----------------------------------------------------------
 # Fisher's Exact Test for enrichment analysis
