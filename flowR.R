@@ -134,7 +134,8 @@ if (!is.null(fill_file)) {
         protein = if(ncol(override_raw) >= 4) as.character(override_raw[[4]]) else gene_query # unique protein name if not provided
     ) %>%
     select(chr, start, end, strand, protein) # Select relevant columns
-
+    
+    message("-> fill file normalized: ", nrow(override), " gene charged.")
 }
 
 # -----------------------------------------------------------
