@@ -123,6 +123,8 @@ bind_rows(upstream, center, downstream) # Combine upstream, center, and downstre
 # -----------------------------------------------------------
 # Process re-annotated genes
 if (!is.null(fill_file)) {
+    override_raw <- read.delim(fill_file, header = FALSE, stringsAsFactors = FALSE)
+    colnames(override_raw)[1:3] <- c("chr", "v_tmp1", "v_tmp2")
 
 }
 
