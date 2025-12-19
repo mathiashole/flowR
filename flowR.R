@@ -143,7 +143,7 @@ if (!is.null(fill_file)) {
 all_contexts <- list()
 all_genes    <- list()
 
-for (i in seq_along(gff_files)) {
+for (g in seq_along(gff_files)) {
     message("-> Processing: ", gff_files[g])
     gff <- read.delim(gff_files[g], header = FALSE, sep = "\t", comment.char = "#", stringsAsFactors = FALSE)
     cfg <- read_yaml(yaml_files[g])
@@ -266,4 +266,4 @@ gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group
     theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10)) # Customize theme
 
 ggsave(plot_file, gg, width = 12, height = 8, dpi = 800) # Save plot to file
-}
+} # debug make plot every time
