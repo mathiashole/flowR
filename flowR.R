@@ -293,5 +293,10 @@ genomes <- genomes[!is.na(genomes)]
 
 for (g in genomes) {
 
+    message("Plotting genome: ", g)
+
+    plot_data_g <- plot_data %>%
+        filter(genome == g)
+
     }
 }
