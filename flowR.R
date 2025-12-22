@@ -19,6 +19,7 @@ window     <- 3
 top_n      <- 8
 plot_file  <- NULL
 fill_file <- NULL
+mode <- "genome" # default mode
 
 # -----------------------------------------------------------
 # Parse command line arguments
