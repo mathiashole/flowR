@@ -240,6 +240,18 @@ plot_data <- bind_rows(
         n = 0
     )
 )
+
+###
+zeros <- expand.grid(
+    genome = unique(plot_data$genome),
+    protein = top_proteins,
+    relative_position = 0,
+    n = 0,
+    stringsAsFactors = FALSE
+)
+
+###
+
 # save data
 write.table(
     plot_data,
