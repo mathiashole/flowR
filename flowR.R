@@ -38,7 +38,9 @@ for (i in seq_along(args)) {
         plot_file <- args[i + 1]
     } else if (args[i] == "--fill_file" || args[i] == "-f") {
         fill_file <- args[i + 1]
-    }
+    } else if (args[i] == "--mode" || args[i] == "-m") {
+    mode <- args[i + 1]
+}
 }
 
 # -----------------------------------------------------------
