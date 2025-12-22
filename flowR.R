@@ -250,6 +250,7 @@ zeros <- expand.grid(
     stringsAsFactors = FALSE
 )
 
+plot_data <- bind_rows(plot_data, zeros)
 ###
 
 # save data
