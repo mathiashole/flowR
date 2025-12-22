@@ -265,23 +265,23 @@ write.table(
 # -----------------------------------------------------------
 # Visualization
 # draw plot only if plot_file is provided
-if (!is.null(plot_file)) {
+# if (!is.null(plot_file)) {
 
-# n_anchors <- nrow(anchors) # Number of anchor genes found
-n_anchors <- sum(unique(context_data$n_anchors)) # Total number of anchor genes across genomes
+# # n_anchors <- nrow(anchors) # Number of anchor genes found
+# n_anchors <- sum(unique(context_data$n_anchors)) # Total number of anchor genes across genomes
 
-gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) + # Create ggplot object
-    geom_line(linewidth = 1) + # Add lines for each protein
-    geom_point(size = 3, alpha = 0.8) + # Add points for each protein
-    annotate("text", x = Inf, y = Inf, label = paste0("n = ", n_anchors), hjust = 1.1, vjust = 1.5, size = 4) + # Annotate number of genes
-    scale_x_continuous(breaks = -window:window, labels = c(paste0("5′ -", window:1), gene_query, paste0("3′ +", 1:window))) + # Customize x-axis labels
-    labs(
-        x = paste0("5′ <- ", gene_query, " -> 3′"),
-        y = "Number of genes",
-        color = "Protein",
-    ) + # Add labels
-    theme_classic() +
-    theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10)) # Customize theme
+# gg <- ggplot(plot_data, aes(x = relative_position, y = n, color = protein, group = protein)) + # Create ggplot object
+#     geom_line(linewidth = 1) + # Add lines for each protein
+#     geom_point(size = 3, alpha = 0.8) + # Add points for each protein
+#     annotate("text", x = Inf, y = Inf, label = paste0("n = ", n_anchors), hjust = 1.1, vjust = 1.5, size = 4) + # Annotate number of genes
+#     scale_x_continuous(breaks = -window:window, labels = c(paste0("5′ -", window:1), gene_query, paste0("3′ +", 1:window))) + # Customize x-axis labels
+#     labs(
+#         x = paste0("5′ <- ", gene_query, " -> 3′"),
+#         y = "Number of genes",
+#         color = "Protein",
+#     ) + # Add labels
+#     theme_classic() +
+#     theme(legend.position = "bottom", axis.title = element_text(size = 12), axis.text = element_text(size = 10)) # Customize theme
 
-ggsave(plot_file, gg, width = 12, height = 8, dpi = 800) # Save plot to file
-} # debug make plot every time
+# ggsave(plot_file, gg, width = 12, height = 8, dpi = 800) # Save plot to file
+# } # debug make plot every time
