@@ -320,5 +320,6 @@ for (g in genomes) {
         plot_file
         )
 
+        ggsave(out_file, gg, width = 12, height = 8, dpi = 300)
     }
 }
