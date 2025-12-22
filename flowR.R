@@ -298,5 +298,11 @@ for (g in genomes) {
     plot_data_g <- plot_data %>%
         filter(genome == g)
 
+    context_data_g <- context_data %>%
+        filter(genome == g)
+
+    n_anchors <- sum(unique(context_data_g$n_anchors))
+
+
     }
 }
