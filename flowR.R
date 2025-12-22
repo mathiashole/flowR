@@ -40,7 +40,7 @@ for (i in seq_along(args)) {
         fill_file <- args[i + 1]
     } else if (args[i] == "--mode" || args[i] == "-m") {
     mode <- args[i + 1]
-}
+    }
 }
 
 # -----------------------------------------------------------
