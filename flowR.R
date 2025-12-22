@@ -285,3 +285,13 @@ write.table(
 
 # ggsave(plot_file, gg, width = 12, height = 8, dpi = 800) # Save plot to file
 # } # debug make plot every time
+
+if (!is.null(plot_file)) {
+
+genomes <- unique(plot_data$genome)
+genomes <- genomes[!is.na(genomes)]
+
+for (g in genomes) {
+
+    }
+}
