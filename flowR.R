@@ -227,6 +227,10 @@ top_proteins <- context_data %>% # Identify top N most frequent proteins
 #     filter(protein %in% top_proteins) %>%
 #     count(protein, relative_position)
 # continue visualization even if some positions have zero counts
+plot_data <- context_data %>%
+    filter(protein %in% top_proteins) %>%
+    count(genome, protein, relative_position)
+
 plot_data <- bind_rows(
     plot_data,
     expand.grid(
